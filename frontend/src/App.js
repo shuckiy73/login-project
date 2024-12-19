@@ -7,8 +7,8 @@ function App() {
   const [loginFlag, setLoginFlag] = useState(false);
   return (
     loginFlag === false ?
-      <div className="App"><Signin loginFlag = {setLoginFlag}/></div>
-      :<div className="App"><Welcome loginFlag = {setLoginFlag}/></div>
+      <div className="App"><Signin loginFlag={setLoginFlag} /></div>
+      : <div className="App"><Welcome loginFlag={setLoginFlag} /></div>
   );
 }
 

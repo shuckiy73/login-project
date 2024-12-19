@@ -11,18 +11,15 @@ import BottomPanda from '../assets/img/bottom-panda.png';
 import axios from "axios";
 import { FaTwitter, FaDiscord, FaFacebookF, FaTelegramPlane, FaInstagram} from "react-icons/fa";
 
-// const AcceptLogin = ({ props }) => {
-    
-// }
-function Signin({loginFlag}) {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [loginError, setError] = useState(false)
+function Signin({ loginFlag }) {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [loginError, setError] = useState(false);
     
     const AcceptUser = () => {
-        if(username === "" || password === ""){
-            setError(true)
-            return
+        if (username === "" || password === "") {
+            setError(true);
+            return;
         }
         axios
             .post("/api/acceptUser", {
@@ -30,59 +27,61 @@ function Signin({loginFlag}) {
                 password: password
             })
             .then((response) => {
-                if(response.data === "Faild")
-                    setError(true)
-                else{
-                    setError(false)
-                    loginFlag(true)
+                if (response.data === "Faild")
+                    setError(true);
+                else {
+                    setError(false);
+                    loginFlag(true);
                 }
             })
             .catch(err => console.log(err));
     }
-    return(
+    return (
         <div className="Signin">
             <Container className="Contain mb-4">
                 <Row>
-                    <Col sm="0" md="4"/>
+                    <Col sm="0" md="4" />
                     <Col xs="12" sm="12" md="4">
-                    <div className="Top-Panda"><img className="Topimg" src={TopPanda} alt="Lorewave"/></div>
+                        <div className="Top-Panda"><img className="Topimg" src={TopPanda} alt="Lorewave" /></div>
                         <Form className="Signin-From pt-5">
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control type="email" placeholder="Enter email" value={username} onChange={(e) => {
-                                    setUsername(e.target.value)
-                                }}/>
-                                {/* <Form.Text className="Valid-Gmail Valid-Label">
-                                    We'll never share your email with anyone else.
-                                </Form.Text> */}
+                                <Form.Control 
+                                    type="email" 
+                                    placeholder="Введите email" 
+                                    value={username} 
+                                    onChange={(e) => {
+                                        setUsername(e.target.value)
+                                    }}
+                                />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formBasicPassword mt-2">
-                                <Form.Control type="password" placeholder="Password" vlaue={password} onChange={(e) => {
-                                    setPassword(e.target.value)
-                                }}/>
-                                {/* <Form.Text className="Valid-Pass Valid-Label">
-                                    We'll never share your email with anyone else.
-                                </Form.Text> */}
+                                <Form.Control 
+                                    type="password" 
+                                    placeholder="Пароль" 
+                                    value={password} 
+                                    onChange={(e) => {
+                                        setPassword(e.target.value)
+                                    }}
+                                />
                             </Form.Group>
                             <Button className="signin-button" onClick={AcceptUser}>
-                                Signin
-                                {/* {!loginLoading ? 'Sign In' : 'Logged in...'} */}
-                                {/* <Link to="/welcome">SIGN IN</Link> */}
+                                Войти
                             </Button>
                             {loginError && (
                                 <div className="alert alert-danger mt-3">
-                                Bad combination of username and password.
+                                    Неверная комбинация имени пользователя и пароля.
                                 </div>
                             )}
                             <div className="Footer-main-community mt-3">
-                                <NavLink href="" target="_blank"><FaInstagram/></NavLink>
-                                <NavLink href="" target="_blank"><FaTwitter/></NavLink>
-                                <NavLink href="" target="_blank"><FaFacebookF/></NavLink>
+                                <NavLink href="" target="_blank"><FaInstagram /></NavLink>
+                                <NavLink href="" target="_blank"><FaTwitter /></NavLink>
+                                <NavLink href="" target="_blank"><FaFacebookF /></NavLink>
                             </div>
                         </Form>
                     </Col>
                 </Row>
             </Container>
-            <div className="Bottom-Panda"><img className="Bottomimg" src={BottomPanda} alt="Bottomimg"/></div>
+            <div className="Bottom-Panda"><img className="Bottomimg" src={BottomPanda} alt="Bottomimg" /></div>
         </div>
     );
 }
