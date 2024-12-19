@@ -1,0 +1,64 @@
+.Signin .Signin-From {
+    margin-top: -45px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.Signin .Signin-From .Valid-Label {
+    color: red;
+    font-size: 12pt;
+}
+.Signin .Top-Panda .Topimg {
+    height: 200px;
+    width: auto;
+    
+}
+.Signin .Bottom-Panda .Bottomimg{
+    height: 122px;
+    width: 100%;
+}
+.Signin .Bottom-Panda{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.signin-button {
+    border: none;
+    outline: none;
+    color: #fff;
+    background: black;
+    cursor: pointer;
+    font-size: 27px;
+    font-weight: bold;
+    border-radius: 28px;
+    padding: 0px 30px;
+}
+
+.Signin .Signin-From .Footer-main-community a svg {
+    font-size: 30px;
+    padding: 5px;
+    background: black;
+    color: white;
+    border-radius: 20px;
+}
+
+.Signin .Signin-From .Footer-main-community {
+    display: flex;
+    flex-direction: row;
+    margin-left: 20%;
+}
+
+@media screen and (max-width:991px) {
+    .Signin .Bottom-Panda .Bottomimg{
+        height: 50px;
+    }
+    .Signin .Top-Panda .Topimg {
+        height: 100px;
+        width: auto;
+    }
+    .Signin .Signin-From {
+        margin-top: -25px;
+    }
+}

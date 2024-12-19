@@ -1,0 +1,22 @@
+.Header .navbar {
+    background: black;
+} 
+
+.navbar-light .navbar-brand {
+    font-weight: bold;
+    font-size: 20pt;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+    font-weight: bold;
+    padding: 0px 30px;
+}
+
+.navbar-light .navbar-brand {
+    color: white;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-color: white;
+}
