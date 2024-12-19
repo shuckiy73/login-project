@@ -7,21 +7,21 @@ import TopPanda from '../assets/img/top-panda.png'
 import BottomPanda from '../assets/img/bottom-panda.png';
 import Header from './Header.js'
 
-function Welcome ({loginFlag}) {
+function Welcome({ loginFlag }) {
     return (
         <div className="Welcome">
-            <Header loginFlag = {loginFlag}/>
+            <Header loginFlag={loginFlag} />
             <Container>
                 <div className="Main-Text">
-                    <h1>WELCOME</h1>
+                    <h1>ДОБРО ПОЖАЛОВАТЬ</h1>
                     <div className="Line" />
                     <div className="Black-Text">
-                        <h2>BLACK FRIDAY SALE</h2>
+                        <h2>РАСПРОДАЖА ЧЕРНОЙ ПЯТНИЦЫ</h2>
                     </div>
                     <div className="Line1" />
                 </div>
             </Container>
-            <div className="Bottom-Panda"><img className="Bottomimg" src={BottomPanda} alt="Bottomimg"/></div>
+            <div className="Bottom-Panda"><img className="Bottomimg" src={BottomPanda} alt="Bottomimg" /></div>
         </div>
     );
 }
