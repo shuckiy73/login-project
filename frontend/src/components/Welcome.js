@@ -1,11 +1,9 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';  
-import { Form, Button } from "react-bootstrap";
 import './Welcome.css';
-import TopPanda from '../assets/img/top-panda.png'
 import BottomPanda from '../assets/img/bottom-panda.png';
-import Header from './Header.js'
+import Header from './Header.js';
 
 function Welcome({ loginFlag }) {
     return (
