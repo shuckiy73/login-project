@@ -1,15 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { Container, Row, Col, NavLink } from "react-bootstrap";
-import { Link, useResolvedPath } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';  
 import { Form, Button } from "react-bootstrap";
-import { ajax } from 'rxjs/ajax'
 import './Signin.css';
-import TopPanda from '../assets/img/top-panda.png'
+import TopPanda from '../assets/img/top-panda.png';
 import BottomPanda from '../assets/img/bottom-panda.png';
 import axios from "axios";
-import { FaTwitter, FaDiscord, FaFacebookF, FaTelegramPlane, FaInstagram} from "react-icons/fa";
+import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
 
 function Signin({ loginFlag }) {
     const [username, setUsername] = useState('');

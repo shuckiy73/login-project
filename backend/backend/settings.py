@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from pathlib import Path
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -26,7 +26,6 @@ SECRET_KEY = 'l4y@!^rox=b*!x-qd9xa*nt%r$$zcp!p_d&1gh@b99s-#iqsj&'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 INSTALLED_APPS = [
@@ -40,7 +39,6 @@ INSTALLED_APPS = [
     'rest_framework',         # add this 
     'todo',
 ]
-
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',    # add this
@@ -58,7 +56,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "frontend/build"],  # Путь к папке с index.html
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,17 +71,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Изменено на SQLite3
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Имя файла базы данных SQLite3
+        'ENGINE': 'django.db.backends.sqlite3',  # SQLite3
+        'NAME': BASE_DIR / 'db.sqlite3',  # Имя файла базы данных SQLite3
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -103,13 +99,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -117,17 +112,22 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
 
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
+# Настройка для статических файлов React
+STATICFILES_DIRS = [
+    BASE_DIR / "frontend/build/static",  # Путь к статическим файлам React
 ]
 
-# we whitelist localhost:3000 because that's where frontend will be served
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000/',
-)
+# Настройка для CORS
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # Разрешенный источник для фронтенда
+    'http://localhost:8000',  # Разрешенный источник для бэкенда
+]
+# Устаревшая настройка, можно удалить
+# CORS_ORIGIN_WHITELIST = (
+#     'http://localhost:3000/',
+# )
