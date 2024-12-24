@@ -124,9 +124,9 @@ STATICFILES_DIRS = [
 
 # Настройка для CORS
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',  # Разрешенные источники для CORS
+    'http://localhost:3000',  # Разрешенный источник для фронтенда
+    'http://localhost:8000',  # Разрешенный источник для бэкенда
 ]
-
 # Устаревшая настройка, можно удалить
 # CORS_ORIGIN_WHITELIST = (
 #     'http://localhost:3000/',
